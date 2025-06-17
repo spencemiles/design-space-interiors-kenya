@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetStructure Solutions | Professional Network Infrastructure</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1a2a6c, #2c3e50);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            font-size: 28px;
+            color: #4CAF50;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: 0.5px;
+        }
+        
+        .logo span {
+            color: #4CAF50;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            color: #4CAF50;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact-btn {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .contact-btn:hover {
+            background: #45a049;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3') )no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s, transform 0.3s;
+            margin-top: 20px;
+        }
+        
+        .cta-button:hover {
+            background: #45a049;
+            transform: translateY(-3px);
+        }
+        
+        /* Introduction Section */
+        .intro {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            color: #1a2a6c;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #4CAF50;
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 700px;
+            margin: 25px auto 0;
+        }
+        
+        .intro-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .intro-text {
+            flex: 1;
+        }
+        
+        .intro-text h3 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .intro-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .intro-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .intro-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: #f1f5f9;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-icon {
+            background: #1a2a6c;
+            color: white;
+            font-size: 40px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-content {
+            padding: 30px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .service-content p {
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        /* Portfolio Section */
+        .portfolio {
+            padding: 100px 0;
+            background-color: #fff;
+        }
+        
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            background: #f1f5f9;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: #1a2a6c;
+            color: white;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 300px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .portfolio-item img, .portfolio-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-item:hover img, .portfolio-item:hover video {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(26, 42, 108, 0.9) 0%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 25px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-overlay h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .video-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(76, 175, 80, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .portfolio-item:hover .video-icon {
+            opacity: 1;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .benefits-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .benefit-icon {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background: #e8f5e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4CAF50;
+            font-size: 24px;
+        }
+        
+        .benefit-text h3 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .benefit-text p {
+            color: #555;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1a2a6c, #2c3e50);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1c1c1c;
+            color: #ccc;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #4CAF50;
+        }
+        
+        .footer-column p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .contact-info {
+            margin-bottom: 20px;
+        }
+        
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            color: white;
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #4CAF50;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .intro-content {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero {
+                height: 70vh;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                height: 60vh;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="https://www.designspaceinteriors.co.ke/wp-content/uploads/2024/07/cropped-Design-Space-Kenya-Interior-Design-and-Construction-Services-Kenya-Logo-design-Design-Space-Kenya.png" alt="">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="aboutus.html"><i class="fas fa-building"></i> About</a></li>
+                    <li><a href="service.html"><i class="fas fa-wrench"></i> Services</a></li>
+                    <li><a href="portfolio.html"><i class="fas fa-images"></i> Projects</a></li>
+                    <li><a href="contact.html" class="contact-btn"><i class="fas fa-comment-dots"></i> Get Quote</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Professional Structured Cabling Solutions</h2>
+                <p>Building the backbone of your business communication infrastructure</p>
+                <a href="portfolio.html" class="cta-button">View Our Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro">
+        <div class="container">
+            <div class="section-title">
+                <h2>Structured Cabling Systems</h2>
+                <p>We provide comprehensive, reliable, and scalable cabling solutions for businesses of all sizes</p>
+            </div>
+            <div class="intro-content">
+                <div class="intro-text">
+                    <h3>What is Structured Cabling?</h3>
+                    <p>Structured cabling is a standardized approach to cabling infrastructure that supports multiple hardware uses and provides a comprehensive telecommunications infrastructure. It provides the foundation for all voice, data, and video communications within your organization.</p>
+                    <p>Our structured cabling solutions are designed to meet current requirements while providing the flexibility to accommodate future growth and technology changes. We follow international standards (TIA/EIA) to ensure reliability, performance, and scalability.</p>
+                    <p>Whether you're setting up a new office, expanding your current space, or upgrading existing infrastructure, our expert team delivers tailored solutions that maximize performance and minimize downtime.</p>
+                </div>
+                <div class="intro-image">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Structured Cabling System">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Cabling Services</h2>
+                <p>Comprehensive solutions for all your network infrastructure needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ethernet"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Data Cabling</h3>
+                        <p>Professional installation of Cat5e, Cat6, and Cat6a Ethernet cables for high-speed data transfer. We ensure optimal performance with certified testing and documentation.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Voice Cabling</h3>
+                        <p>Reliable voice communication systems with proper termination and labeling for easy maintenance and future expansion. We integrate VoIP systems seamlessly.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Security & CCTV Cabling</h3>
+                        <p>Secure installation for surveillance systems, access control, and security networks with proper shielding and protection against interference.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Wireless Network Solutions</h3>
+                        <p>Professional installation and configuration of enterprise-grade wireless access points with seamless roaming and high-density capabilities.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Data Center Cabling</h3>
+                        <p>Optimized cabling solutions for server rooms and data centers with proper cable management, airflow consideration, and scalability.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Cabling Maintenance & Testing</h3>
+                        <p>Comprehensive testing and certification of existing cabling infrastructure with detailed reports and performance analysis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+<section id="portfolio" class="portfolio">
+  <div class="container">
+     <div class="section-title">
+      <h2>Solutions Delivered</h2>
+      <p>Explore our expertly delivered structured cabling projects for commercial offices, schools, hospitals, and data centers.</p>
+    </div>
+
+    <div class="portfolio-filter">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="commercial">Commercial</button>
+      <button class="filter-btn" data-filter="education">Education</button>
+      <button class="filter-btn" data-filter="healthcare">Healthcare</button>
+      <button class="filter-btn" data-filter="data-center">Data Centers</button>
+    </div>
+
+    <div class="portfolio-grid">
+      
+      <!-- Commercial Project 1 -->
+      <div class="portfolio-item" data-category="commercial">
+        <img src="https://www.trgdatacenters.com/wp-content/uploads/2022/10/shutterstock_495697993-1920x1080.jpg" alt="Structured cabling in modern commercial building">
+        <div class="portfolio-overlay">
+          <h3>Corporate Office Building</h3>
+          <p>Full structured cabling system for 10-story office building</p>
+        </div>
+      </div>
+
+      <!-- Education Project -->
+      <div class="portfolio-item" data-category="education">
+        <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=900&q=80" alt="Fiber optic cabling in university">
+        <div class="portfolio-overlay">
+          <h3>University Campus Network</h3>
+          <p>Fiber optic backbone for campus-wide connectivity</p>
+        </div>
+      </div>
+
+      <!-- Healthcare Project -->
+      <div class="portfolio-item" data-category="healthcare">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ_8ft2v3xWgeFZeNIvj19CyDdu09_CR38BZnxDO3t7vNpj6rctQlOvaw0QJTEnq1caLs&usqp=CAU" alt="Hospital cabling infrastructure">
+        <div class="portfolio-overlay">
+          <h3>Regional Hospital</h3>
+          <p>Medical-grade network infrastructure with redundancy</p>
+        </div>
+      </div>
+
+      <!-- Data Center Project -->
+      <div class="portfolio-item" data-category="data-center">
+        <img src="https://www.sunbirddcim.com/sites/default/files/AdobeStock_289763213_0.jpg" alt="Data center cable management">
+        <div class="portfolio-overlay">
+          <h3>Tier 3 Data Center</h3>
+          <p>High-density fiber optic cabling solution</p>
+        </div>
+      </div>
+
+      <!-- Commercial Project 2 -->
+      <div class="portfolio-item" data-category="commercial">
+        <img src="https://www.cisco.com/c/dam/en/us/td/i/200001-300000/290001-300000/291001-292000/291478.eps/_jcr_content/renditions/291478.jpg" alt="Retail network wiring">
+        <div class="portfolio-overlay">
+          <h3>Retail Chain Network</h3>
+          <p>POS and security system cabling for 15 locations</p>
+        </div>
+      </div>
+
+      <!-- Education Project 2 -->
+      <div class="portfolio-item" data-category="education">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx11Uqhjwm8AgNuNo_jNAyFRndLPqaiBT_sw&s" alt="School network room">
+        <div class="portfolio-overlay">
+          <h3>High School Network Upgrade</h3>
+          <p>Cat6A installation for enhanced educational technology</p>
+        </div>
+      </div>
+
+      <!-- Healthcare Project 2 -->
+      <div class="portfolio-item" data-category="healthcare">
+        <img src="https://www.mdpi.com/jsan/jsan-12-00020/article_deploy/html/images/jsan-12-00020-g009.png" alt="Clinic server setup">
+        <div class="portfolio-overlay">
+          <h3>Medical Clinic Network</h3>
+          <p>Structured cabling for telemedicine capabilities</p>
+        </div>
+      </div>
+
+      <!-- Data Center Project 2 -->
+      <div class="portfolio-item" data-category="data-center">
+        <img src="https://www.eaton.com/content/dam/switchon/hotspots/server-room-mobile-ba.jpg" alt="Server room with structured cabling">
+        <div class="portfolio-overlay">
+          <h3>Enterprise Server Room</h3>
+          <p>Optimized cable management solution</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Benefits of Professional Cabling</h2>
+                <p>Why investing in proper cabling infrastructure matters</p>
+            </div>
+            <div class="benefits-content">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Enhanced Performance</h3>
+                        <p>Properly installed cabling ensures optimal network performance with minimal signal loss and interference.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Future-Proof Scalability</h3>
+                        <p>Designed to accommodate growth and new technologies without major infrastructure changes.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Easier Maintenance</h3>
+                        <p>Well-organized and labeled cabling simplifies troubleshooting and reduces downtime.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Improved Security</h3>
+                        <p>Properly installed cabling reduces vulnerabilities and protects against unauthorized access.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Cost Efficiency</h3>
+                        <p>Reduces long-term operational costs by minimizing downtime and maintenance requirements.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Standards Compliance</h3>
+                        <p>Meets industry standards ensuring compatibility and warranty protection.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Upgrade Your Network Infrastructure?</h2>
+            <p>Contact us today for a free consultation and site assessment. Our experts will design a customized solution that meets your specific business needs.</p>
+            <a href="contact.html" class="cta-button"><i class="fas fa-phone-alt"></i> Contact Us Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>NetStructure Solutions</h3>
+                    <p>Professional structured cabling solutions for businesses seeking reliable, scalable, and high-performance network infrastructure.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                 <div class="contact-info">
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <a href="https://www.google.com/maps/search/123+Tech+Park,+Nairobi,+Kenya" target="_blank" style="text-decoration: none; color: inherit;">
+                        123 Tech Park, Nairobi, Kenya
+                        </a>
+                    </p>
+                    <p>
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+254773 256 000" style="text-decoration: none; color: inherit;">
+                        +254 773 256 000
+                        </a>
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:info@netstructure.co.ke" style="text-decoration: none; color: inherit;">
+                        info@netstructure.co.ke
+                        </a>
+                    </p>
+                    <p>
+                        <i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM
+                    </p>
+                </div>
+
+
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html" style="color: #ccc; text-decoration: none;">Home</a></p>
+                    <p><a href="aboutus.html" style="color: #ccc; text-decoration: none;">About Us</a></p>
+                    <p><a href="portfolio.html" style="color: #ccc; text-decoration: none;">Projects</a></p>
+                    <p><a href="sercice.html" style="color: #ccc; text-decoration: none;">Services</a></p>
+                    <p><a href="contact.html" style="color: #ccc; text-decoration: none;">Contact</a></p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 NetStructure Solutions. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color:#4CAF50;"></i> for Better Connectivity</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Portfolio filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            // Portfolio filtering
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    portfolioItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Portfolio item hover effect for videos
+            portfolioItems.forEach(item => {
+                const video = item.querySelector('video');
+                if (video) {
+                    item.addEventListener('mouseenter', () => {
+                        video.play();
+                    });
+                    
+                    item.addEventListener('mouseleave', () => {
+                        video.pause();
+                    });
+                }
+            });
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

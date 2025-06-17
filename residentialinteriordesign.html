@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Residential Interior Design | Design Space Interiors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2a5c7c;
+            --secondary: #e8b274;
+            --dark: #1a1a1a;
+            --light: #f8f8f8;
+            --gray: #6c757d;
+            --transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.7;
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background-color: #1d465f;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+
+        .btn-secondary:hover {
+            background-color: #d9a05b;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            font-size: 1.1rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-center .section-title:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: white;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 5px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(5px);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled .header-container {
+            padding: 10px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 12px;
+            transition: var(--transition);
+        }
+
+        header.scrolled .logo img {
+            height: 35px;
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-menu li {
+            margin-left: 35px;
+            position: relative;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 15px;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+            z-index: 1001;
+        }
+
+        /* Hero Section */
+        .service-hero {
+            height: 80vh;
+            min-height: 700px;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            color: white;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-hero-content {
+            max-width: 800px;
+        }
+
+        .service-hero-title {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-hero-btns {
+            display: flex;
+            gap: 20px;
+            animation: fadeInUp 1s ease 0.6s forwards;
+            opacity: 0;
+        }
+
+        /* Service Intro */
+        .service-intro {
+            background-color: white;
+            padding: 80px;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            margin-top: -80px;
+            position: relative;
+            z-index: 3;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .service-intro.animate {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .service-intro-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .service-intro-text {
+            flex: 1;
+        }
+
+        .service-intro-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-intro-image img {
+            width: 100%;
+            height: auto;
+            transition: var(--transition);
+        }
+
+        .service-intro-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Service Features */
+        .service-features {
+            margin-top: 100px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .feature-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        /* Design Process */
+        .design-process {
+            background-color: var(--primary);
+            color: white;
+            padding: 120px 0;
+        }
+
+        .design-process .section-title:after {
+            background-color: var(--secondary);
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        .process-steps:before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: rgba(255, 255, 255, 0.2);
+            z-index: 1;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            width: 20%;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .process-step.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            color: var(--primary);
+            border-radius: 50%;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .process-step:hover .step-number {
+            background-color: var(--secondary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .step-desc {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+
+        /* Portfolio Showcase */
+        .portfolio-showcase {
+            padding: 100px 0;
+        }
+
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            background-color: transparent;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 350px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: var(--transition);
+        }
+
+        .portfolio-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.1);
+        }
+
+        .portfolio-title {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .portfolio-category {
+            color: var(--secondary);
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-title,
+        .portfolio-item:hover .portfolio-category {
+            transform: translateY(0);
+        }
+
+        /* Testimonial */
+        .service-testimonial {
+            background-color: #f9f9f9;
+            padding: 120px 0;
+        }
+
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .testimonial-quote:before,
+        .testimonial-quote:after {
+            content: '"';
+            font-size: 5rem;
+            color: rgba(42, 92, 124, 0.1);
+            position: absolute;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-quote:before {
+            top: -30px;
+            left: -40px;
+        }
+
+        .testimonial-quote:after {
+            bottom: -80px;
+            right: -40px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .author-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--secondary);
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .service-cta {
+            background: linear-gradient(135deg, rgba(42, 92, 124, 0.9), rgba(42, 92, 124, 0.95)), url('https://images.unsplash.com/photo-1600121848594-d8644e57abab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .service-cta .section-title:after {
+            background-color: var(--secondary);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .contact-info {
+            color: #bbb;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-info i {
+            margin-right: 15px;
+            color: var(--secondary);
+            margin-top: 3px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .section {
+                padding: 80px 0;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .service-hero-title {
+                font-size: 3.5rem;
+            }
+
+            .service-intro {
+                padding: 60px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .service-intro-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .process-steps {
+                flex-wrap: wrap;
+                gap: 40px;
+            }
+
+            .process-step {
+                width: 45%;
+            }
+
+            .process-steps:before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 0;
+                transition: var(--transition);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .service-hero-title {
+                font-size: 2.8rem;
+            }
+
+            .service-hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .service-hero-btns {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .service-intro {
+                padding: 40px;
+                margin-top: -50px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .service-hero {
+                min-height: 600px;
+            }
+
+            .service-hero-title {
+                font-size: 2.2rem;
+            }
+
+            .service-intro {
+                padding: 30px 20px;
+            }
+
+            .process-step {
+                width: 100%;
+                text-align: left;
+                display: flex;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .step-number {
+                margin-bottom: 0;
+                flex-shrink: 0;
+            }
+
+            .cta-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+             <a href="#" class="logo">
+                <img src="https://www.designspaceinteriors.co.ke/wp-content/uploads/2024/07/cropped-Design-Space-Kenya-Interior-Design-and-Construction-Services-Kenya-Logo-design-Design-Space-Kenya.png" alt="">
+            </a>
+            
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutus.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="service-hero">
+        <div class="container">
+            <div class="service-hero-content">
+                <h1 class="service-hero-title">Residential Interior Design</h1>
+                <p class="service-hero-subtitle">Custom interior design solutions that reflect your personality and lifestyle, from concept development to final implementation.</p>
+                <div class="service-hero-btns">
+                    <a href="contact.html" class="btn">
+                        <i class="fas fa-calendar-alt"></i> Book Consultation
+                    </a>
+                    <a href="portfolio.html" class="btn btn-outline">
+                        <i class="fas fa-images"></i> View Portfolio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Intro -->
+    <section class="section">
+        <div class="container">
+            <div class="service-intro">
+                <div class="service-intro-content">
+                    <div class="service-intro-text">
+                        <h2 class="section-title">Transform Your Living Space</h2>
+                        <p>Our residential interior design service is dedicated to creating beautiful, functional spaces that reflect your unique personality and lifestyle. We believe your home should be a sanctuary that tells your story while providing comfort and functionality for everyday living.</p>
+                        <p>From initial concept to final installation, our team of experienced designers will guide you through every step of the process, ensuring a seamless and enjoyable experience that results in a space you'll love coming home to.</p>
+                        <a href="spaceplanningandlayout.html" class="btn" style="margin-top: 30px;">
+                            <i class="fas fa-phone"></i> Get Started Today
+                        </a>
+                    </div>
+                    <div class="service-intro-image">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80" alt="Residential Interior Design">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Features -->
+    <section class="section service-features">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Our Residential Design Services</h2>
+                <p class="section-subtitle">We offer comprehensive interior design solutions tailored to your specific needs and preferences.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="feature-title">Complete Home Design</h3>
+                    <p>End-to-end interior design solutions for your entire home, ensuring cohesive style and optimal flow between spaces.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h3 class="feature-title">Room-Specific Design</h3>
+                    <p>Focused design solutions for individual rooms including living rooms, bedrooms, kitchens, and home offices.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <h3 class="feature-title">Color Consultation</h3>
+                    <p>Expert guidance on color palettes that create the perfect mood and atmosphere for each space in your home.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="feature-title">Lighting Design</h3>
+                    <p>Strategic lighting plans that enhance functionality and ambiance while highlighting your home's best features.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h3 class="feature-title">Space Planning</h3>
+                    <p>Optimized layouts that maximize your square footage while improving traffic flow and functionality.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-swatchbook"></i>
+                    </div>
+                    <h3 class="feature-title">Material Selection</h3>
+                    <p>Curated selection of finishes, fabrics, and materials that align with your style and durability needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Process -->
+    <section class="design-process">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Our Design Process</h2>
+                <p class="section-subtitle">A structured approach to ensure your residential project is completed on time, on budget, and beyond expectations.</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Discovery</h3>
+                    <p class="step-desc">Initial consultation to understand your vision, needs, and lifestyle requirements.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Concept Development</h3>
+                    <p class="step-desc">Creation of mood boards, sketches, and 3D renderings to visualize the design.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Design Refinement</h3>
+                    <p class="step-desc">Incorporating your feedback to perfect every detail of the proposed design.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Implementation</h3>
+                    <p class="step-desc">Project management and coordination of all design elements and installations.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3 class="step-title">Reveal & Enjoy</h3>
+                    <p class="step-desc">Final walkthrough and handover of your beautifully transformed space.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Showcase -->
+    <section class="portfolio-showcase" id="portfolio">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Our Residential Portfolio</h2>
+                <p class="section-subtitle">Explore some of our recent residential interior design projects.</p>
+            </div>
+
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="living">Living Rooms</button>
+                <button class="filter-btn" data-filter="bedroom">Bedrooms</button>
+                <button class="filter-btn" data-filter="kitchen">Kitchens</button>
+                <button class="filter-btn" data-filter="bathroom">Bathrooms</button>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="living">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Modern Living Room" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Modern Living Room</h3>
+                        <p class="portfolio-category">Living Room Design</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="kitchen">
+                    <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Contemporary Kitchen" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Contemporary Kitchen</h3>
+                        <p class="portfolio-category">Kitchen Design</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="bedroom">
+                    <img src="https://images.unsplash.com/photo-1583845112203-454c7cdad944?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Luxury Master Bedroom" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Luxury Master Bedroom</h3>
+                        <p class="portfolio-category">Bedroom Design</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="bathroom">
+                    <img src="https://images.unsplash.com/photo-1606744837616-56c9a5c6a6eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Spa Bathroom" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Spa Bathroom</h3>
+                        <p class="portfolio-category">Bathroom Design</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="living">
+                    <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Cozy Family Room" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Cozy Family Room</h3>
+                        <p class="portfolio-category">Living Room Design</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="bedroom">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80" alt="Guest Bedroom" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Guest Bedroom</h3>
+                        <p class="portfolio-category">Bedroom Design</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="service-testimonial">
+        <div class="container">
+            <div class="testimonial-content">
+                <p class="testimonial-quote">Design Space Interiors transformed our home into a magazine-worthy space while keeping it completely functional for our family of five. Their attention to detail and ability to understand our lifestyle needs resulted in a home that's both beautiful and practical.</p>
+                
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson">
+                    </div>
+                    <div class="author-info">
+                        <h4>Sarah Johnson</h4>
+                        <p>Karen, Nairobi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="service-cta" id="contact">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Ready to Transform Your Home?</h2>
+                <p class="section-subtitle">Contact us today to schedule a consultation with our design team. Let's create a space that reflects your style and meets your needs perfectly.</p>
+                
+                <div class="cta-btns">
+                    <a href="tel:+254773 256 000" class="btn">
+                        <i class="fas fa-phone"></i> Call Us Now
+                    </a>
+                    <a href="mailto:info@designspaceinteriors.co.ke" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Send Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Design Space</h3>
+                    <p>Creating beautiful, functional spaces that enhance your quality of life. We're committed to excellence in every detail of our residential interior design services.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Services</h3>
+                   <ul class="footer-links">
+                        <li><a href="residentialinteriordesign.html">Residential Design</a></li>
+                        <li><a href="structuredcabling.html">Structured Cabling</a></li>
+                        <li><a href="officefitoutsandrenovations.html">Officefitoutsandrenovations</a></li>
+                        <li><a href="interiordesignconsultancy.html">interior design consultancy</a></li>
+                        <li><a href="spaceplanningandlayout.html">space planning and layouts</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Design Space Interiors, Westlands, Nairobi, Kenya</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+254 775 256 000</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@designspaceinteriors.co.ke</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Fri: 8:00 AM - 5:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 Design Space Interiors. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Portfolio Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Animate elements on scroll
+        function animateOnScroll() {
+            const animateElements = document.querySelectorAll('.service-intro, .feature-card, .process-step, .portfolio-item');
+            
+            animateElements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animate');
+                }
+            });
+        }
+
+        // Initialize animations on load
+        window.addEventListener('load', () => {
+            animateOnScroll();
+            
+            // Animate service intro after a slight delay
+            setTimeout(() => {
+                document.querySelector('.service-intro').classList.add('animate');
+            }, 300);
+        });
+
+        // Animate on scroll
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>

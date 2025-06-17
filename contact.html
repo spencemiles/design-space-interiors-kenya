@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Space Interiors | Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a4a8d;
+            --secondary: #e6b85f;
+            --accent: #c33c54;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #1a2a6c, #0a4a8d, #b21f1f);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Video Background */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.15;
+            filter: blur(1px) brightness(0.7);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 100px 20px 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(10, 74, 141, 0.7) 0%, rgba(10, 74, 141, 0) 70%);
+            z-index: -1;
+            animation: pulse 8s infinite alternate;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: fadeInDown 1.2s ease;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+            animation: lineExpand 1.5s ease;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 30px auto 0;
+            line-height: 1.8;
+            animation: fadeInUp 1.2s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            animation: fadeInUp 1.2s ease 0.6s forwards;
+            opacity: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 14px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover {
+            background: #d9a54a;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-outline:hover {
+            background: rgba(230, 184, 95, 0.2);
+        }
+
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+            margin-bottom: 60px;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .contact-card:nth-child(1) { animation-delay: 0.2s; }
+        .contact-card:nth-child(2) { animation-delay: 0.4s; }
+        .contact-card:nth-child(3) { animation-delay: 0.6s; }
+        .contact-card:nth-child(4) { animation-delay: 0.8s; }
+        .contact-card:nth-child(5) { animation-delay: 1.0s; }
+        .contact-card:nth-child(6) { animation-delay: 1.2s; }
+
+        .contact-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card-header i {
+            font-size: 2.5rem;
+            margin-right: 20px;
+            color: var(--secondary);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .card-header h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .contact-method {
+            margin: 20px 0;
+            padding: 18px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-method::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--secondary);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.5s ease;
+        }
+
+        .contact-method:hover {
+            background: rgba(0, 0, 0, 0.3);
+            transform: translateX(8px);
+        }
+
+        .contact-method:hover::before {
+            transform: scaleY(1);
+        }
+
+        .contact-method i {
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 20px;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .contact-method:hover i {
+            transform: scale(1.1);
+            background: rgba(230, 184, 95, 0.2);
+        }
+
+        .contact-method a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.2rem;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .contact-method a:hover {
+            color: var(--secondary);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .fast { background: #4CAF50; }
+        .popular { background: #FF9800; }
+        .available { background: #2196F3; }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 15px;
+            margin: 12px 0;
+            border: none;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 3px var(--secondary);
+        }
+
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+            margin-top: 15px;
+            padding: 16px;
+            font-size: 1.2rem;
+        }
+
+        .map-container {
+            height: 320px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .file-label {
+            display: block;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            margin: 15px 0;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .file-label:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .support-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .tool-btn {
+            flex: 1;
+            min-width: 130px;
+            text-align: center;
+            padding: 15px 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tool-btn i {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .tool-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        /* Business Hours */
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .hour-item {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .hour-item .day {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            margin-top: 50px;
+            font-size: 1.1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .social-icons a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes lineExpand {
+            0% { width: 0; }
+            100% { width: 120px; }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.5; transform: scale(1); }
+            100% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        /* ===== HEADER STYLES ===== */
+        #header {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo img {
+            max-height: 60px;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* ===== NAVIGATION MENU ===== */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        .nav-menu li a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-menu li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu li a:hover {
+            color: var(--accent);
+        }
+        
+        .nav-menu li a:hover:after {
+            width: 100%;
+        }
+        
+        /* ===== NAV BUTTONS ===== */
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        :root {
+          --accent: #cfa93d; /* curry color */
+          --light: #ecf0f1;
+          --dark: #2c3e50;
+        }
+
+        /* Glowing animation from left to right */
+        @keyframes glowWave {
+          0% {
+            left: -100%;
+            opacity: 0.2;
+          }
+          50% {
+            left: 100%;
+            opacity: 0.4;
+          }
+          100% {
+            left: 100%;
+            opacity: 0;
+          }
+        }
+
+        .btn {
+          padding: 10px 20px;
+          border-radius: 4px;
+          text-decoration: none;
+          font-weight: 600;
+          transition: all 0.3s ease;
+          background-color: var(--light);
+          color: var(--dark);
+          position: relative;
+          overflow: hidden;
+          z-index: 1;
+        }
+
+        .btn:hover {
+          background-color: #d5dbdb;
+          transform: translateY(-2px);
+        }
+
+        /* Primary glowing button */
+        .btn-primary {
+          background-color: var(--accent);
+          color: #fff !important;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          position: relative;
+          overflow: hidden;
+          z-index: 1;
+        }
+
+        /* Glowing effect layer */
+        .btn-primary::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          height: 100%;
+          width: 100%;
+          background: linear-gradient(
+            to right,
+            transparent 0%,
+            rgba(207, 169, 61, 0.5) 50%,
+            transparent 100%
+          );
+          animation: glowWave 2.5s infinite;
+          z-index: -1;
+        }
+
+        /* Hover enhancement */
+        .btn-primary:hover {
+          background-color: #b3872e;
+          transform: translateY(-2px);
+        }
+        
+        /* ===== MOBILE MENU BUTTON ===== */
+        .mobile-menu-btn {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        /* ===== MOBILE RESPONSIVE STYLES ===== */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            /* Header adjustments */
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            .nav-menu, .nav-buttons {
+                width: 100%;
+                display: none;
+                margin-top: 15px;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .nav-menu li {
+                width: 100%;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .nav-menu li a {
+                display: block;
+                padding: 12px 0;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-menu.active, 
+            .nav-buttons.active {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 20px 50px;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-card {
+                padding: 25px;
+            }
+            
+            .card-header h3 {
+                font-size: 1.5rem;
+            }
+            
+            /* Header adjustments */
+            .logo img {
+                max-height: 50px;
+            }
+            
+            .btn {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+            
+            /* Disable video background on mobile */
+            .video-background {
+                display: none;
+            }
+            
+            /* Use static background instead */
+            body {
+                background: linear-gradient(135deg, #1a2a6c, #0a4a8d, #b21f1f);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 70px 15px 40px;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                margin-top: 20px;
+            }
+            
+            .card-header i {
+                font-size: 2rem;
+                margin-right: 15px;
+            }
+            
+            .contact-method a {
+                font-size: 1.1rem;
+            }
+            
+            .contact-method i {
+                width: 42px;
+                height: 42px;
+                font-size: 1.3rem;
+                margin-right: 15px;
+            }
+            
+            .contact-form input,
+            .contact-form textarea,
+            .contact-form select {
+                padding: 12px;
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+            
+            .map-container {
+                height: 250px;
+            }
+            
+            /* Footer adjustments */
+            footer {
+                padding: 40px 15px;
+            }
+            
+            .social-icons a {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .card-header h3 {
+                font-size: 1.3rem;
+            }
+            
+            .contact-method {
+                padding: 15px;
+            }
+            
+            .badge {
+                font-size: 0.8rem;
+                padding: 4px 10px;
+            }
+            
+            .tool-btn {
+                min-width: 110px;
+                padding: 12px 8px;
+                font-size: 0.9rem;
+            }
+            
+            .tool-btn i {
+                font-size: 1.5rem;
+            }
+            
+            /* Header adjustments */
+            .header-container {
+                padding: 10px 0;
+            }
+            
+            .logo img {
+                max-height: 40px;
+            }
+            
+            .btn {
+                padding: 10px 15px;
+                font-size: 13px;
+            }
+        }
+
+        /* Touch target optimizations */
+        @media (pointer: coarse) {
+            .contact-method,
+            .tool-btn,
+            .btn {
+                min-height: 48px;
+            }
+            
+            .contact-method a,
+            .tool-btn {
+                touch-action: manipulation;
+            }
+            
+            .btn {
+                padding: 14px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+    <div class="container header-container">
+        <a href="#" class="logo">
+            <img src="https://www.designspaceinteriors.co.ke/wp-content/uploads/2024/07/cropped-Design-Space-Kenya-Interior-Design-and-Construction-Services-Kenya-Logo-design-Design-Space-Kenya.png" alt="Design Space Kenya">
+        </a>
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutus.html">About</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-buttons">
+            <a href="contact.html" class="btn">Get Quote</a>
+            <a href="tel:+254712345678" class="btn btn-primary"><i class="fas fa-phone"></i> Call Us</a>
+        </div>
+    </div>
+</header>
+    
+    <!-- Video background is disabled on mobile -->
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-background-with-moving-lines-1761-large.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="container">
+        <section class="hero">
+            <h1>Design Space Interiors</h1>
+            <p>Transform your space with our expert interior design services. Contact us today to schedule a consultation and start your journey to a beautifully designed home or office.</p>
+            <div class="hero-buttons">
+                <a href="#contact-form" class="btn">Schedule Consultation</a>
+                <a href="#quick-contact" class="btn btn-outline">Quick Contact</a>
+            </div>
+        </section>
+        
+        <div class="contact-grid">
+            <!-- Quick Contact Section -->
+            <div class="contact-card" id="quick-contact">
+                <div class="card-header">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Quick Contact</h3>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+254722205883">+254 722 205 883 <span class="badge fast">Fast Response</span></a>
+                </div>
+                
+               <div class="contact-method">
+                <i class="fas fa-sms"></i>
+                <a href="sms:+254773256000?&body=Hello%20team,%20I%20would%20like%20to%20inquire%20about%20your%20services.">
+                    Text Us <span class="badge fast">Mobile Only</span>
+                </a>
+             </div>
+
+                
+                <div class="contact-method">
+                    <i class="fab fa-whatsapp"></i>
+                    <a href="https://wa.me/254773256000">WhatsApp Chat <span class="badge popular">Most Popular</span></a>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fab fa-facebook-messenger"></i>
+                    <a href="https://m.me/designspaceinteriors">Messenger <span class="badge available">24/7</span></a>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:info@designspaceinteriors.co.ke">info@designspaceinteriors.co.ke</a>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="contact-card" id="contact-form">
+                <div class="card-header">
+                    <i class="fas fa-envelope-open-text"></i>
+                    <h3>Send a Message</h3>
+                </div>
+                
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="tel" placeholder="Your Phone">
+                    
+                    <select>
+                        <option value="" disabled selected>Select Inquiry Type</option>
+                        <option value="residential">Residential Design</option>
+                        <option value="commercial">Commercial Design</option>
+                        <option value="renovation">Renovation</option>
+                        <option value="consultation">Consultation</option>
+                        <option value="other">Other</option>
+                    </select>
+                    
+                    <textarea placeholder="Tell us about your project..." required></textarea>
+                    
+                    <label class="file-label">
+                        <i class="fas fa-file-upload"></i> Upload Design Files (Optional)
+                        <input type="file" class="file-upload" multiple>
+                    </label>
+                    
+                    <button type="submit" class="btn btn-block">Send Message <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+            
+            <!-- Visit & Location -->
+            <div class="contact-card">
+                <div class="card-header">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Visit Us</h3>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fas fa-building"></i>
+                    <div>
+                        <p><strong>Design Space Interiors</strong></p>
+                        <p>P.O Box 103006 – 00101</p>
+                        <p>Nairobi, Kenya</p>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.817476572535!2d36.81920831475392!3d-1.2826117359798842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d71b30d3c9%3A0x4e08e9b9b0e7a3a!2sDesign%20Space%20Interiors!5e0!3m2!1sen!2ske!4v1651234567890!5m2!1sen!2ske" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                
+                <a href="https://goo.gl/maps/ABC123" class="btn" style="margin-top: 20px;">
+                    <i class="fas fa-directions"></i> Get Directions
+                </a>
+            </div>
+            
+            <!-- Social & Digital -->
+            <div class="contact-card">
+                <div class="card-header">
+                    <i class="fas fa-hashtag"></i>
+                    <h3>Social & Digital</h3>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fab fa-instagram" style="color: #e1306c;"></i>
+                    <a href="https://www.instagram.com/designspaceinteriors">Message on Instagram</a>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fab fa-linkedin" style="color: #0077b5;"></i>
+                    <a href="https://linkedin.com/company/designspaceinteriors">Connect on LinkedIn</a>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fab fa-telegram" style="color: #0088cc;"></i>
+                    <a href="https://t.me/designspaceinteriors">Telegram Chat</a>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fab fa-viber" style="color: #7360f2;"></i>
+                    <a href="viber://chat?number=%2B254722205883">Viber Chat</a>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fas fa-comments"></i>
+                    <a href="#">Live Chat Support <span class="badge available">Online Now</span></a>
+                </div>
+            </div>
+            
+            <!-- Appointments & Support -->
+            <div class="contact-card">
+                <div class="card-header">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Appointments</h3>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fas fa-video" style="color: #4285f4;"></i>
+                    <a href="#">Schedule Video Call</a>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fas fa-store" style="color: #34a853;"></i>
+                    <a href="#">Book Showroom Visit</a>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fas fa-headset" style="color: #fbbc05;"></i>
+                    <a href="#">Customer Support</a>
+                </div>
+                
+                <h4 style="margin: 30px 0 20px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.2);">Support Tools</h4>
+                
+                <div class="support-tools">
+                    <div class="tool-btn">
+                        <i class="fas fa-ticket-alt"></i>
+                        <div>Support Ticket</div>
+                    </div>
+                    <div class="tool-btn">
+                        <i class="fas fa-robot"></i>
+                        <div>AI Assistant</div>
+                    </div>
+                    <div class="tool-btn">
+                        <i class="fas fa-book"></i>
+                        <div>FAQs</div>
+                    </div>
+                    <div class="tool-btn">
+                        <i class="fas fa-file-upload"></i>
+                        <div>Upload File</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Business Hours -->
+            <div class="contact-card">
+                <div class="card-header">
+                    <i class="fas fa-clock"></i>
+                    <h3>Business Hours</h3>
+                </div>
+                
+                <div class="hours-grid">
+                    <div class="hour-item">
+                        <div class="day">Monday - Friday</div>
+                        <div class="time">9:00 AM - 6:00 PM</div>
+                    </div>
+                    <div class="hour-item">
+                        <div class="day">Saturday</div>
+                        <div class="time">10:00 AM - 4:00 PM</div>
+                    </div>
+                    <div class="hour-item">
+                        <div class="day">Sunday</div>
+                        <div class="time">Closed</div>
+                    </div>
+                    <div class="hour-item">
+                        <div class="day">Holidays</div>
+                        <div class="time">Special Hours</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px;">
+                    <i class="fas fa-exclamation-circle" style="color: var(--secondary); margin-right: 10px;"></i>
+                    <span>Emergency after-hours service available for existing clients</span>
+                </div>
+                
+                <a href="#" class="btn" style="margin-top: 30px; background: var(--accent);">
+                    <i class="fas fa-download"></i> Download Brochure
+                </a>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">Design Space Interiors</div>
+                <p>Transforming Spaces, Creating Experiences</p>
+                
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                
+                <p>&copy; 2025 Design Space Interiors. All rights reserved.</p>
+                <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">Nairobi, Kenya | P.O Box 103006 – 00101 | info@designspaceinteriors.co.ke</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            const navButtons = document.querySelector('.nav-buttons');
+            
+            menuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                navButtons.classList.toggle('active');
+                
+                // Toggle between hamburger and close icon
+                const icon = this.querySelector('i');
+                if (icon.classList.contains('fa-bars')) {
+                    icon.classList.replace('fa-bars', 'fa-times');
+                } else {
+                    icon.classList.replace('fa-times', 'fa-bars');
+                }
+            });
+            
+            // Close menu when clicking on links
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    navButtons.classList.remove('active');
+                    menuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+                });
+            });
+            
+            // Animation for elements on scroll
+            // Add hover animation to all contact methods
+            const contactMethods = document.querySelectorAll('.contact-method');
+            contactMethods.forEach(method => {
+                method.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(8px)';
+                });
+                method.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                });
+            });
+            
+            // Form submission
+            const contactForm = document.querySelector('.contact-form');
+            if(contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Simple validation
+                    const nameInput = this.querySelector('input[type="text"]');
+                    const emailInput = this.querySelector('input[type="email"]');
+                    const messageInput = this.querySelector('textarea');
+                    
+                    if(nameInput.value.trim() === '') {
+                        alert('Please enter your name');
+                        nameInput.focus();
+                        return;
+                    }
+                    
+                    if(emailInput.value.trim() === '' || !isValidEmail(emailInput.value)) {
+                        alert('Please enter a valid email address');
+                        emailInput.focus();
+                        return;
+                    }
+                    
+                    if(messageInput.value.trim() === '') {
+                        alert('Please enter your message');
+                        messageInput.focus();
+                        return;
+                    }
+                    
+                    // Here you would normally send the form data to your server
+                    alert('Thank you for your message! We will get back to you soon.');
+                    this.reset();
+                });
+            }
+            
+            function isValidEmail(email) {
+                const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(String(email).toLowerCase());
+            }
+            
+            // Animate elements on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.contact-card').forEach(card => {
+                observer.observe(card);
+            });
+            
+            // Disable animations on mobile for better performance
+            if ('ontouchstart' in window || navigator.maxTouchPoints) {
+                document.querySelectorAll('*').forEach(el => {
+                    el.style.animation = 'none !important';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

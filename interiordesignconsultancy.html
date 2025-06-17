@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Design Consultancy | Design Space Interiors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f7;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            font-size: 28px;
+            color: #c5a47e;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 28px;
+            color: #222;
+        }
+        
+        .logo span {
+            color: #c5a47e;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #c5a47e;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: #c5a47e;
+        }
+        
+        .contact-btn {
+            background: #c5a47e;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .contact-btn:hover {
+            background: #b08e66;
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80')) no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #c5a47e;
+            color: white;
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-button:hover {
+            background: #b08e66;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Introduction Section */
+        .intro {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #222;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: #c5a47e;
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 700px;
+            margin: 25px auto 0;
+        }
+        
+        .intro-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-top: 50px;
+        }
+        
+        .intro-text {
+            flex: 1;
+        }
+        
+        .intro-text h3 {
+            font-size: 1.8rem;
+            color: #222;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .intro-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .intro-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .intro-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .intro-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: #f9f9f7;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-icon {
+            background: #c5a47e;
+            color: white;
+            font-size: 40px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-content {
+            padding: 30px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            color: #222;
+            margin-bottom: 15px;
+        }
+        
+        .service-content p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .learn-more {
+            display: inline-block;
+            color: #c5a47e;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .learn-more:hover {
+            color: #b08e66;
+            text-decoration: underline;
+        }
+        
+        /* Process Section */
+        .process {
+            padding: 100px 0;
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .process::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1507652313519-d4e9174996dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            opacity: 0.05;
+            z-index: -1;
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+            position: relative;
+        }
+        
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 80px;
+            left: 10%;
+            width: 80%;
+            height: 3px;
+            background: #c5a47e;
+            z-index: 0;
+        }
+        
+        .step {
+            background: white;
+            border-radius: 50%;
+            width: 160px;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .step:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .step-number {
+            background: #c5a47e;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .step h4 {
+            font-size: 1.1rem;
+            color: #222;
+            margin-bottom: 10px;
+        }
+        
+        .step p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background-color: #f9f9f7;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 80px;
+            font-family: 'Playfair Display', serif;
+            color: #c5a47e;
+            opacity: 0.2;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            margin-bottom: 20px;
+            color: #555;
+            font-style: italic;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .client-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .client-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .client-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .client-details h4 {
+            color: #222;
+            margin-bottom: 5px;
+        }
+        
+        .client-details p {
+            color: #c5a47e;
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(rgba(34, 34, 34, 0.9), url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80')) no-repeat center center/cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #222;
+            color: #ccc;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #c5a47e;
+        }
+        
+        .footer-column p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .contact-info {
+            margin-bottom: 20px;
+        }
+        
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            color: white;
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #c5a47e;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .intro-content {
+                flex-direction: column;
+            }
+            
+            .process-steps::before {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .hero {
+                height: 70vh;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .step {
+                width: 140px;
+                height: 140px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                height: 60vh;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .step {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+              <a href="#" class="logo">
+                <img src="https://www.designspaceinteriors.co.ke/wp-content/uploads/2024/07/cropped-Design-Space-Kenya-Interior-Design-and-Construction-Services-Kenya-Logo-design-Design-Space-Kenya.png" alt="">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutus.html">About</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html" class="contact-btn">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Expert Interior Design Consultancy</h1>
+                <p>Transforming your vision into beautifully designed spaces that inspire</p>
+                <a href="contact.html" class="cta-button">Schedule a Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Consultancy Services</h2>
+                <p>Professional guidance to create functional, beautiful, and personalized spaces</p>
+            </div>
+            <div class="intro-content">
+                <div class="intro-text">
+                    <h3>Tailored Design Solutions</h3>
+                    <p>At DesignSpace, we offer comprehensive interior design consultancy services to help you create spaces that reflect your personality, lifestyle, and aspirations. Our experienced designers work closely with you to understand your vision, preferences, and functional requirements.</p>
+                    <p>Whether you're building a new home, renovating an existing space, or looking to refresh your commercial property, our consultancy services provide the expertise and creative direction you need to make informed design decisions.</p>
+                    <p>We combine aesthetic excellence with practical solutions to create environments that are not only beautiful but also functional and sustainable. Our approach ensures that every project is unique and tailored to your specific needs.</p>
+                    <a href="service.html" class="cta-button">Explore Our Services</a>
+                </div>
+                <div class="intro-image">
+                    <img src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Consultancy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Consultancy Offerings</h2>
+                <p>Comprehensive services tailored to your design needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Residential Design Consultation</h3>
+                        <p>Expert guidance for your home interiors, including space planning, color schemes, furniture selection, and material choices.</p>
+                        <a href="contact.html" class="learn-more">consult <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Commercial Space Planning</h3>
+                        <p>Professional advice for office layouts, retail spaces, and hospitality environments focused on functionality and brand alignment.</p>
+                        <a href="consult" class="learn-more">consult <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Color Scheme Consultation</h3>
+                        <p>Expert color selection services to create harmonious palettes that enhance your space and reflect your personality.</p>
+                        <a href="contact.html" class="learn-more">consult <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Furniture Selection</h3>
+                        <p>Guidance in choosing furniture that combines comfort, style, and functionality for your specific space.</p>
+                        <a href="contact.html" class="learn-more">consult <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Lighting Design Advice</h3>
+                        <p>Professional recommendations for ambient, task, and accent lighting to create the perfect mood and functionality.</p>
+                        <a href="contact.html" class="learn-more">consult <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-swatchbook"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Material & Finish Selection</h3>
+                        <p>Expert advice on choosing the right materials, textures, and finishes for floors, walls, and surfaces.</p>
+                        <a href="contact.html" class="learn-more">consult <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Consultation Process</h2>
+                <p>A structured approach to achieving your design goals</p>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Initial Meeting</h4>
+                    <p>Discuss your vision, requirements, and budget</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Site Assessment</h4>
+                    <p>Evaluate your space and take measurements</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Concept Development</h4>
+                    <p>Create initial design concepts and mood boards</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Design Presentation</h4>
+                    <p>Present our recommendations and solutions</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h4>Implementation Support</h4>
+                    <p>Guide you through the execution phase</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <p>What our clients say about our consultancy services</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-content">"DesignSpace transformed our home with their expert advice. Their attention to detail and understanding of our needs resulted in a space that perfectly reflects our style and personality."</p>
+                    <div class="client-info">
+                        <div class="client-image">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="">
+                        </div>
+                        <div class="client-details">
+                            <h4>Sarah Johnson</h4>
+                            <p>Residential Client</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-content">"The commercial space planning consultation was invaluable for our new office. The team created a functional yet beautiful environment that has boosted employee morale and productivity."</p>
+                    <div class="client-info">
+                        <div class="client-image">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+                        </div>
+                        <div class="client-details">
+                            <h4>Michael Chen</h4>
+                            <p>Commercial Client</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-content">"The color consultation service helped us overcome our indecision. The designer's expertise created a cohesive palette that flows beautifully throughout our entire home."</p>
+                    <div class="client-info">
+                        <div class="client-image">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="">
+                        </div>
+                        <div class="client-details">
+                            <h4>Emma Rodriguez</h4>
+                            <p>Residential Client</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Space?</h2>
+            <p>Schedule a consultation with our expert designers today and take the first step toward creating your dream environment</p>
+            <a href="contact.html" class="cta-button">Book Your Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>DesignSpace Interiors</h3>
+                    <p>Creating beautiful, functional spaces that inspire and transform lives through exceptional interior design consultancy.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Design Avenue, Nairobi, Kenya</p>
+                        <p><i class="fas fa-phone"></i> +254 773 256 000</p>
+                        <p><i class="fas fa-envelope"></i> info@designspace.co.ke</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html" style="color: #ccc; text-decoration: none;">Home</a></p>
+                    <p><a href="aboutus.html" style="color: #ccc; text-decoration: none;">About Us</a></p>
+                    <p><a href="service.html" style="color: #ccc; text-decoration: none;">Services</a></p>
+                    <p><a href="portfolio.html" style="color: #ccc; text-decoration: none;">Portfolio</a></p>
+                    <p><a href="contact.html" style="color: #ccc; text-decoration: none;">Contact</a></p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 DesignSpace Interiors. All Rights Reserved. | Crafted with <i class="fas fa-heart" style="color:#c5a47e;"></i> for Beautiful Spaces</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

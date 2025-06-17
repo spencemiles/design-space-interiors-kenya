@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Space Interiors | Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #c19a6b;
+            --primary-dark: #a8845a;
+            --dark: #222222;
+            --light: #ffffff;
+            --gray: #f8f8f8;
+            --text: #555555;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark);
+            font-weight: 700;
+        }
+        
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-padding {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text);
+            font-size: 18px;
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        header.scrolled {
+            padding: 15px 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        /* Navigation */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-menu li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        .nav-menu a {
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu a:hover:after,
+        .nav-menu a.active:after {
+            width: 100%;
+        }
+        
+        .nav-menu a.active {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://cdn.pixabay.com/video/2016/07/23/3967-175963622_large.mp4') no-repeat center center/cover;
+            color: var(--light);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 20px;
+            transform: translateY(30px);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards 0.5s;
+        }
+        
+        .hero-content h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: var(--light);
+            line-height: 1.2;
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: var(--primary);
+            color: var(--light);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--light);
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .flip-card {
+            perspective: 1000px;
+            height: 450px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .flip-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            background: var(--light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .flip-card-back {
+            background: var(--dark);
+            color: var(--light);
+            transform: rotateY(180deg);
+        }
+        
+        .service-image {
+            width: 100%;
+            height: 180px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        .rounded-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .flip-card:hover .rounded-image {
+            transform: scale(1.05);
+        }
+        
+        .flip-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .flip-card-back h3 {
+            color: var(--light);
+        }
+        
+        .flip-card p {
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+        
+        .flip-card-back p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .read-more-btn {
+            padding: 12px 30px;
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .read-more-btn:hover {
+            background: var(--primary);
+            color: var(--light);
+        }
+        
+        .cta-button {
+            padding: 12px 30px;
+            background: var(--primary);
+            color: var(--light);
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Video Section */
+        .video-section {
+            position: relative;
+            height: 500px;
+            background: var(--dark);
+            margin: 100px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            overflow: hidden;
+        }
+        
+        .video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+        }
+        
+        .video-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .video-content h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+        
+        .video-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 0 10px rgba(193, 154, 107, 0.3);
+        }
+        
+        .play-button i {
+            font-size: 24px;
+            color: var(--light);
+            margin-left: 5px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: var(--gray);
+            padding: 100px 0;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--light);
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 {
+            color: var(--light);
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .footer-col p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 48px;
+            }
+            
+            .section-title h2 {
+                font-size: 36px;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: var(--light);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s ease;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .hero-content p {
+                font-size: 18px;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+            }
+            
+            .section-padding {
+                padding: 70px 0;
+            }
+            
+            .video-content h2 {
+                font-size: 32px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .flip-card {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+             <a href="#" class="logo">
+                <img src="https://www.designspaceinteriors.co.ke/wp-content/uploads/2024/07/cropped-Design-Space-Kenya-Interior-Design-and-Construction-Services-Kenya-Logo-design-Design-Space-Kenya.png" alt="">
+            </a>
+            
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="aboutus.html">About</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Our Premium Interior Services</h1>
+            <p>Transforming spaces with innovative design solutions that blend functionality with aesthetic appeal</p>
+            <div class="hero-buttons">
+                <a href="service.html" class="btn">Explore Services</a>
+                <a href="contact.html" class="btn btn-outline">Get a Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-padding" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We offer comprehensive interior design services tailored to both residential and commercial spaces, ensuring every project reflects our commitment to excellence.</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Space Planning -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="service-image">
+                                <img src="https://images.pexels.com/photos/1571459/pexels-photo-1571459.jpeg" alt="Space Planning" class="rounded-image">
+                            </div>
+                            <h3>Space Planning & Layout</h3>
+                            <p>Optimize your space with intelligent layouts that maximize functionality and workflow.</p>
+                            <button class="read-more-btn">Read More</button>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Space Planning & Layout</h3>
+                            <p>Our experts analyze your space requirements and create efficient layouts that enhance productivity and flow. We consider traffic patterns, furniture placement, and functional zones to create spaces that work perfectly for your needs.</p>
+                            <a href="contact.html" class="cta-button">Get a Consultation</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Residential Design -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="service-image">
+                                <img src="https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg" alt="Residential Design" class="rounded-image">
+                            </div>
+                            <h3>Residential Design</h3>
+                            <p>Create beautiful, functional homes that reflect your personal style and lifestyle needs.</p>
+                            <button class="read-more-btn">Read More</button>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Residential Design</h3>
+                            <p>From cozy apartments to luxurious estates, we design residential spaces that combine comfort with sophistication. Our team works closely with you to understand your vision and bring it to life.</p>
+                            <a href="contact.html" class="cta-button">Start Your Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Commercial Design -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="service-image">
+                                <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg" alt="Commercial Design" class="rounded-image">
+                            </div>
+                            <h3>Commercial Design</h3>
+                            <p>Enhance your business environment with professional commercial interior solutions.</p>
+                            <button class="read-more-btn">Read More</button>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Commercial Design</h3>
+                            <p>We create commercial spaces that impress clients and inspire employees. Our designs consider brand identity, functionality, and employee wellbeing to create productive work environments.</p>
+                            <a href="contact.html" class="cta-button">Discuss Your Space</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <video class="video-bg" autoplay muted loop playsinline>
+            <source src="https://videos.pexels.com/video-files/7578552/7578552-uhd_2560_1440_30fps.mp4" type="video/mp4">
+        </video>
+        <div class="video-content">
+            <div class="play-button">
+                <i class="fas fa-play"></i>
+            </div>
+            <h2>Our Design Philosophy</h2>
+            <p>Watch our short video to understand how we approach each project with creativity, precision, and attention to detail.</p>
+            <a href="about.html" class="btn btn-outline">Learn About Us</a>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+ 
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>About Us</h3>
+                    <p>Design Space Interiors is a premier interior design firm specializing in creating beautiful, functional spaces for both residential and commercial clients.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Design Street, Nairobi, Kenya</p>
+                    <p><i class="fas fa-phone"></i> +254 712 345 678</p>
+                    <p><i class="fas fa-envelope"></i> info@designspace.co.ke</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Design Space Interiors. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Header Scroll Effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+        
+        // Set active navigation link
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+                
+                // Special case for index.html
+                if (link.getAttribute('href') === 'index.html' && (currentPage === '' || currentPage === 'index.html')) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Video Play Button
+        const playButton = document.querySelector('.play-button');
+        const videoBg = document.querySelector('.video-bg');
+        
+        playButton.addEventListener('click', function() {
+            // This would typically open a modal with the full video
+            alert('This would open a video player with our design philosophy video');
+        });
+        
+        // Flip card read more buttons
+        document.querySelectorAll('.read-more-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const flipCard = this.closest('.flip-card');
+                flipCard.querySelector('.flip-card-inner').style.transform = 'rotateY(180deg)';
+            });
+        });
+    </script>
+</body>
+</html>

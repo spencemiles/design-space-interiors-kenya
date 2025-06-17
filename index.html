@@ -1,0 +1,2361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Space Interiors - Luxury Interior Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+
+        .hero-content.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .hero-subtitle:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 2px;
+            background: #c19a6b;
+        }
+
+        .hero-title {
+            font-size: 70px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .hero-text {
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .years-badge {
+            display: inline-block;
+            background: rgba(193, 154, 107, 0.2);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 120px 0;
+            background: #fff;
+            color: #333;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: #c19a6b;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            color: #777;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-img {
+            flex: 1;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 40px;
+            font-weight: 700;
+            color: #c19a6b;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Services Section */
+     
+        /* Testimonials Section */
+        .testimonials {
+            padding: 120px 0;
+            background: #f9f9f9;
+            color: #333;
+            text-align: center;
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-slide {
+            padding: 0 50px;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .testimonial-slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .testimonial-content {
+            font-size: 20px;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            position: relative;
+        }
+
+        .testimonial-content:before,
+        .testimonial-content:after {
+            content: '"';
+            font-size: 60px;
+            color: #c19a6b;
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .testimonial-content:before {
+            top: -30px;
+            left: -20px;
+        }
+
+        .testimonial-content:after {
+            bottom: -50px;
+            right: -20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .author-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+            border: 3px solid #c19a6b;
+        }
+
+        .author-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #222;
+        }
+
+        .author-info p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .slider-controls {
+            margin-top: 40px;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: #ddd;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #c19a6b;
+            transform: scale(1.2);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 120px 0;
+            background: #fff;
+            color: #333;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .contact-info p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: #c19a6b;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 16px;
+        }
+
+        .info-content h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #222;
+        }
+
+        .info-content p {
+            color: #777;
+            margin: 0;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: #f9f9f9;
+        }
+
+        .form-control:focus {
+            border-color: #c19a6b;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(193, 154, 107, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #c19a6b;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #b0885e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: #fff;
+            padding: 80px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: #c19a6b;
+        }
+
+        .footer-col p {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: #c19a6b;
+            transform: translateX(5px);
+        }
+
+        .footer-links a i {
+            margin-right: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: #fff;
+        }
+
+        .social-link:hover {
+            background: #c19a6b;
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #c19a6b;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #b0885e;
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Media Queries */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 60px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 50px;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-img, .about-text {
+                flex: none;
+                width: 100%;
+            }
+
+            .about-img {
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu, .nav-buttons {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 40px;
+            }
+
+            .hero-text {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 14px;
+            }
+
+            .section-title h2 {
+                font-size: 26px;
+            }
+
+            .testimonial-content {
+                font-size: 16px;
+            }
+
+            .filter-btn {
+                padding: 6px 15px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header id="header">
+    <div class="container header-container">
+        <a href="#" class="logo">
+            <img src="https://www.designspaceinteriors.co.ke/wp-content/uploads/2024/07/cropped-Design-Space-Kenya-Interior-Design-and-Construction-Services-Kenya-Logo-design-Design-Space-Kenya.png" alt="Design Space Kenya">
+        </a>
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutus.html">About</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-buttons">
+            <a href="contact.html" class="btn">Get Quote</a>
+            <a href="tel:+254773256000" class="btn btn-primary"><i class="fas fa-phone"></i> Call Us</a>
+        </div>
+    </div>
+    
+    <style>
+        /* ===== BASE STYLES ===== */
+        :root {
+            --primary: #2c3e50;
+            --accent: #e67e22;
+            --light: #ecf0f1;
+            --dark: #34495e;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* ===== HEADER STYLES ===== */
+        #header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo img {
+            max-height: 60px;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* ===== NAVIGATION MENU ===== */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        .nav-menu li a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-menu li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu li a:hover {
+            color: var(--accent);
+        }
+        
+        .nav-menu li a:hover:after {
+            width: 100%;
+        }
+        
+        /* ===== NAV BUTTONS ===== */
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+     :root {
+  --accent: #cfa93d; /* curry color */
+  --light: #ecf0f1;
+  --dark: #2c3e50;
+}
+
+/* Glowing animation from left to right */
+@keyframes glowWave {
+  0% {
+    left: -100%;
+    opacity: 0.2;
+  }
+  50% {
+    left: 100%;
+    opacity: 0.4;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  background-color: var(--light);
+  color: var(--dark);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn:hover {
+  background-color: #d5dbdb;
+  transform: translateY(-2px);
+}
+
+/* Primary glowing button */
+.btn-primary {
+  background-color: var(--accent);
+  color: #fff !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Glowing effect layer */
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(207, 169, 61, 0.5) 50%,
+    transparent 100%
+  );
+  animation: glowWave 2.5s infinite;
+  z-index: -1;
+}
+
+/* Hover enhancement */
+.btn-primary:hover {
+  background-color: #b3872e;
+  transform: translateY(-2px);
+}
+
+        
+        /* ===== MOBILE MENU BUTTON ===== */
+        .mobile-menu-btn {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        /* ===== MEDIA QUERIES ===== */
+        @media (max-width: 992px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            .nav-menu, .nav-buttons {
+                width: 100%;
+                display: none;
+                margin-top: 15px;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .nav-menu li {
+                width: 100%;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .nav-menu li a {
+                display: block;
+                padding: 12px 0;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-menu.active, 
+            .nav-buttons.active {
+                display: flex;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .logo img {
+                max-height: 50px;
+            }
+            
+            .btn {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-container {
+                padding: 10px 0;
+            }
+            
+            .logo img {
+                max-height: 40px;
+            }
+        }
+    </style>
+    
+    <script>
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            const navButtons = document.querySelector('.nav-buttons');
+            
+            menuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                navButtons.classList.toggle('active');
+                
+                // Toggle between hamburger and close icon
+                const icon = this.querySelector('i');
+                if (icon.classList.contains('fa-bars')) {
+                    icon.classList.replace('fa-bars', 'fa-times');
+                } else {
+                    icon.classList.replace('fa-times', 'fa-bars');
+                }
+            });
+            
+            // Close menu when clicking on links (optional)
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    navButtons.classList.remove('active');
+                    menuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+                });
+            });
+        });
+    </script>
+</header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <video autoplay muted loop class="hero-video">
+            <source src="https://videos.pexels.com/video-files/7578552/7578552-uhd_2560_1440_30fps.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+       <div class="container">
+  <div class="hero-content active">
+    <div class="years-badge">Established for 15+ years</div>
+
+    <!-- Image near the title -->
+   
+<div class="hero-images">
+  <div class="hero-image">
+    <img src="https://plus.unsplash.com/premium_photo-1661964473096-90ef8ca12e5d?q=80&w=1930&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Interior Sample Left">
+  </div>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2158&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Interior Sample Right">
+  </div>
+</div>
+
+
+    <h1 class="hero-title">Creating Exceptional Interior Spaces</h1>
+
+    <!-- Image near the paragraph -->
+    
+    <p class="hero-text">
+      We design beautiful, functional spaces that reflect your personality and enhance your lifestyle.
+     
+      Our team of experts will bring your vision to life with meticulous attention to detail.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="service.html" class="btn btn-primary">Get Started</a>
+      <a href="aboutus.html" class="btn">Learn More</a>
+    </div>
+  </div>
+</div>
+<style>
+.hero-images {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.hero-image img {
+  width: 120px;
+  height: 80px;
+  border-radius: 16px; /* smooth rectangular corners */
+  object-fit: cover;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+</style>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+                <p>With nearly two decades of experience, we've perfected the art of creating spaces that inspire and delight.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                <video autoplay muted loop playsinline>
+                    <source src="https://videos.pexels.com/video-files/32477168/13849694_1440_2560_32fps.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <style>
+            .about-img {
+                position: relative;
+                width: 100%;
+                height: 80vh;
+                overflow: hidden;
+            }
+
+            .about-img video {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                min-width: 100%;
+                min-height: 100%;
+                width: auto;
+                height: auto;
+                object-fit: cover;
+            }
+            </style>
+
+                <div class="about-text">
+                    <h3>Kenya's Premier Interior Design Firm</h3>
+                    <p><strong>DesignSpace Interiors Ltd</strong> was founded in 2015 and is a leading interior design firm in Kenya, renowned for delivering exceptional commercial interior architecture and finish solutions. We have partnered with corporates, SMEs, government agencies, embassies, and startups across the country to create inspiring spaces that meet their unique needs.</p>
+                    
+                    <p>At DesignSpace Interiors, we bring your vision to life with innovative and customized interior design solutions. Based in Nairobi, Kenya, we specialize in transforming both workspaces and living spaces to inspire creativity, productivity, and comfort. Our approach integrates modern design principles with the unique requirements of each client, ensuring that every project is both functional and aesthetically pleasing.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">18+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Client Satisfaction</div>
+                        </div>
+                    </div>
+
+                    <a href="service.html" class="btn btn-primary" style="margin-top: 30px;">Our Services</a>
+
+                    <!-- Glowy Glassy Learn More Button -->
+                  <a href="aboutus.html" class="glow-btn">Learn More &#8599;</a>
+                </div>
+
+                <style>
+                /* Glowing Glassy Button Styles */
+                .glow-btn {
+                    display: inline-block;
+                    font-family: "Lucida Calligraphy", cursive;
+                    margin-top: 20px;
+                    padding: 12px 25px;
+                    background: rgba(255, 255, 255, 0.1);
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                    border-radius: 50px;
+                    color: #030303;
+                    font-weight: bold;
+                    text-decoration: none;
+                    backdrop-filter: blur(10px);
+                    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3),
+                                0 0 20px rgba(255, 255, 255, 0.2),
+                                0 0 30px rgba(255, 255, 255, 0.1);
+                    transition: all 0.3s ease;
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .glow-btn:hover {
+                    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5),
+                                0 0 30px rgba(255, 255, 255, 0.3),
+                                0 0 45px rgba(255, 255, 255, 0.2);
+                    transform: translateY(-2px);
+                    background: rgba(255, 255, 255, 0.15);
+                }
+
+                .glow-btn::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -75%;
+                    width: 50%;
+                    height: 100%;
+                    background: linear-gradient(120deg, rgba(255,255,255,0.3), transparent);
+                    transform: skewX(-20deg);
+                    transition: 0.5s;
+                }
+
+                .glow-btn:hover::after {
+                    left: 130%;
+                }
+                </style>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+  <section class="services" id="services">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Services</h2>
+            <p>Comprehensive design and fit-out solutions tailored to your unique needs.</p>
+        </div>
+        <div class="services-grid">
+            <!-- Service 1: Space Planning and Layout -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="service-image">
+                            <img src="https://images.pexels.com/photos/1571459/pexels-photo-1571459.jpeg" alt="Space Planning" class="rounded-image">
+                        </div>
+                        <h3>Space Planning & Layout</h3>
+                        <p>Optimize your space with intelligent layouts that maximize functionality and workflow.</p>
+                        <button class="read-more-btn">click</button>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Space Planning & Layout</h3>
+                        <p>Our experts analyze your space requirements and create efficient layouts that enhance productivity and flow. We consider traffic patterns, furniture placement, and functional zones to create spaces that work perfectly for your needs.</p>
+                        <a href="ModernizedDesignSpaceInteriors.html" class="cta-button">learn more</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 2: Structured Cabling -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="service-image">
+                            <img src="https://www.omnitron-systems.com/images/Blog/Structured-Cabling.jpg" alt="Structured Cabling" class="rounded-image">
+                        </div>
+                        <h3>Structured Cabling</h3>
+                        <p>Professional cabling solutions that ensure reliable connectivity and future-proof your infrastructure.</p>
+                        <button class="read-more-btn">click</button>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Structured Cabling</h3>
+                        <p>We design and install organized cabling systems for data, voice, and video that meet industry standards. Our solutions include network cabling, fiber optics, and cable management for clean, efficient, and scalable infrastructure.</p>
+                        <a href="structuredcabling.html" class="cta-button">learn more</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3: Office Fit-out and Renovation -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Office Fit-out" class="rounded-image">
+                        </div>
+                        <h3>Office Fit-out & Renovation</h3>
+                        <p>Transform your workspace into an inspiring environment that reflects your brand and culture.</p>
+                        <button class="read-more-btn">click</button>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Office Fit-out & Renovation</h3>
+                        <p>Complete office transformation services from concept to completion. We handle everything from demolition to final finishes, including partitions, flooring, lighting, and furniture installation, creating spaces that boost productivity and employee satisfaction.</p>
+                        <a href="officefitoutsandrenovations.html" class="cta-button">learn more</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 4: Home Fit-outs -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Home Fit-outs" class="rounded-image">
+                        </div>
+                        <h3>Home Fit-outs</h3>
+                        <p>Custom residential solutions that turn your house into a perfectly functional and beautiful home.</p>
+                        <button class="read-more-btn">click</button>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Home Fit-outs</h3>
+                        <p>Complete home transformation services including kitchen and bathroom installations, built-in furniture, storage solutions, and interior finishing. We work closely with you to create spaces that match your lifestyle and aesthetic preferences.</p>
+                        <a href="ModernizedDesignSpaceInteriors.html" class="cta-button">learn more</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 5: Consultation -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="service-image">
+                            <img src="https://vmgwork.com/wp-content/uploads/2021/08/interior-design-consultant.jpg" alt="Consultation" class="rounded-image">
+                        </div>
+                        <h3>Consultation</h3>
+                        <p>Expert advice to guide your design decisions and project planning.</p>
+                        <button class="read-more-btn">click</button>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Consultation</h3>
+                        <p>Our design experts provide personalized advice on space utilization, material selection, color schemes, and project planning. Whether you need a one-time consultation or ongoing guidance, we'll help you make informed decisions for your space.</p>
+                        <a href="contact.html" class="cta-button">Book a Session now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .services {
+        padding: 80px 0;
+        background-color: #f9f9f9;
+    }
+    
+    .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+    
+    .section-title h2 {
+        font-size: 36px;
+        margin-bottom: 15px;
+        color: #333;
+    }
+    
+    .section-title p {
+        color: #777;
+        font-size: 18px;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
+        padding: 0 20px;
+    }
+    
+    .flip-card {
+        perspective: 1000px;
+        height: 400px;
+    }
+    
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+    }
+    
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+    
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .flip-card-back {
+        transform: rotateY(180deg);
+        justify-content: center;
+    }
+    
+    .service-image {
+        width: 100%;
+        height: 150px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .rounded-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    
+    .flip-card h3 {
+        margin-bottom: 15px;
+        color: #333;
+    }
+    
+    .flip-card p {
+        color: #666;
+        margin-bottom: 20px;
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    
+    .read-more-btn {
+        background: #4a6fa5;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: auto;
+        transition: background 0.3s;
+    }
+    
+    .read-more-btn:hover {
+        background: #3a5a8a;
+    }
+    
+    .cta-button {
+        background: #4a6fa5;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-top: 20px;
+        display: inline-block;
+        transition: background 0.3s;
+    }
+    
+    .cta-button:hover {
+        background: #3a5a8a;
+    }
+    
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+        .services-grid {
+            grid-template-columns: 1fr;
+            padding: 0 15px;
+        }
+        
+        .flip-card {
+            height: auto;
+            min-height: 300px;
+        }
+        
+        .flip-card-inner {
+            transform: none !important;
+            height: auto;
+        }
+        
+        .flip-card-front, .flip-card-back {
+            position: relative;
+            height: auto;
+            backface-visibility: visible;
+            transform: none;
+        }
+        
+        .flip-card-back {
+            display: none;
+        }
+        
+        .flip-card.active .flip-card-back {
+            display: flex;
+            margin-top: -10px;
+            border-top: none;
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .service-image {
+            height: 120px;
+        }
+    }
+</style>
+
+<script>
+    // Mobile click functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const readMoreBtns = document.querySelectorAll('.read-more-btn');
+        
+        readMoreBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    const card = this.closest('.flip-card');
+                    card.classList.toggle('active');
+                }
+            });
+        });
+    });
+</script>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Portfolio</h2>
+            <p>Explore our recent projects and see how we've transformed spaces for our clients.</p>
+        </div>
+        <div class="portfolio-filter">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="corporate">Corporate</button>
+            <button class="filter-btn" data-filter="energy">Energy</button>
+            <button class="filter-btn" data-filter="ngo">NGO</button>
+        </div>
+        <div class="portfolio-grid">
+            <!-- Bolt Project -->
+            <div class="portfolio-item" data-category="corporate">
+                <img src="img/Our clients/bolt project/1.jpg" alt="Bolt Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Bolt Project</h3>
+                        <p>Corporate Interior Design</p>
+                        <a href="boltproject.html" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="corporate">
+                <img src="img/Our clients/bolt project/2.jpg" alt="Bolt Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Bolt Project</h3>
+                        <p>Corporate Interior Design</p>
+                        <a href="#" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="corporate">
+                <img src="img/Our clients/bolt project/3.jpg" alt="Bolt Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Bolt Project</h3>
+                        <p>Corporate Interior Design</p>
+                        <a href="#" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="corporate">
+                <img src="img/Our clients/bolt project/4.jpg" alt="Bolt Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Bolt Project</h3>
+                        <p>Corporate Interior Design</p>
+                        <a href="#" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="corporate">
+                <img src="img/Our clients/bolt project/5.jpg" alt="Bolt Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Bolt Project</h3>
+                        <p>Corporate Interior Design</p>
+                        <a href="#" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- GM Gamma Project -->
+            <div class="portfolio-item" data-category="corporate">
+                <img src="img/Our clients/Gm gamma advocates/1.jpg" alt="GM Gamma Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>GM Gamma Project</h3>
+                        <p>Modern Office Renovation</p>
+                        <a href="#" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="corporate">
+                <img src="img/Our clients/Gm gamma advocates/2.jpg" alt="GM Gamma Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>GM Gamma Project</h3>
+                        <p>Modern Office Renovation</p>
+                        <a href="#" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="corporate">
+                <img src="img/Our clients/Gm gamma advocates/3.jpg" alt="GM Gamma Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>GM Gamma Project</h3>
+                        <p>Modern Office Renovation</p>
+                        <a href="#" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="corporate">
+                <img src="img/Our clients/Gm gamma advocates/4.jpg" alt="GM Gamma Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>GM Gamma Project</h3>
+                        <p>Modern Office Renovation</p>
+                        <a href="#" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="corporate">
+                <img src="img/Our clients/Gm gamma advocates/5.jpg" alt="GM Gamma Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>GM Gamma Project</h3>
+                        <p>Modern Office Renovation</p>
+                        <a href="#" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jesus Film Project -->
+            <div class="portfolio-item" data-category="ngo">
+                <img src="img/Our clients/jesus film project/1.jpg" alt="Jesus Film Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Jesus Film Project</h3>
+                        <p>Mission-Based Space Design</p>
+                        <a href="#" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="ngo">
+                <img src="img/Our clients/jesus film project/2.jpg" alt="Jesus Film Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Jesus Film Project</h3>
+                        <p>Mission-Based Space Design</p>
+                        <a href="#" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="ngo">
+                <img src="img/Our clients/jesus film project/3.jpg" alt="Jesus Film Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Jesus Film Project</h3>
+                        <p>Mission-Based Space Design</p>
+                        <a href="#" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Swiss Contact Project -->
+            <div class="portfolio-item" data-category="ngo">
+                <img src="img/Our clients/swiss contact project/1.jpg" alt="Swiss Contact Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Swiss Contact Project</h3>
+                        <p>Development Sector Design</p>
+                        <a href="#" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+             <div class="portfolio-item" data-category="ngo">
+                <img src="img/Our clients/swiss contact project/2.jpg" alt="Swiss Contact Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Swiss Contact Project</h3>
+                        <p>Development Sector Design</p>
+                        <a href="#" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+             <div class="portfolio-item" data-category="ngo">
+                <img src="img/Our clients/swiss contact project/3.jpg" alt="Swiss Contact Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Swiss Contact Project</h3>
+                        <p>Development Sector Design</p>
+                        <a href="#" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+             <div class="portfolio-item" data-category="ngo">
+                <img src="img/Our clients/swiss contact project/4.jpg" alt="Swiss Contact Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Swiss Contact Project</h3>
+                        <p>Development Sector Design</p>
+                        <a href="#" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orpower 4 Inc Project -->
+            <div class="portfolio-item" data-category="energy">
+                <img src="img/Our clients/Orpower 4 inc project/1.jpg" alt="Orpower 4 Inc Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Orpower 4 Inc Project</h3>
+                        <p>Energy Facility Interiors</p>
+                        <a href="#" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+             <div class="portfolio-item" data-category="energy">
+                <img src="img/Our clients/Orpower 4 inc project/2.jpg" alt="Orpower 4 Inc Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Orpower 4 Inc Project</h3>
+                        <p>Energy Facility Interiors</p>
+                        <a href="#" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+             <div class="portfolio-item" data-category="energy">
+                <img src="img/Our clients/Orpower 4 inc project/3.jpg" alt="Orpower 4 Inc Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Orpower 4 Inc Project</h3>
+                        <p>Energy Facility Interiors</p>
+                        <a href="#" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+             <div class="portfolio-item" data-category="energy">
+                <img src="img/Our clients/Orpower 4 inc project/4.jpg" alt="Orpower 4 Inc Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Orpower 4 Inc Project</h3>
+                        <p>Energy Facility Interiors</p>
+                        <a href="#" class="view-project">View Projects</a>
+                    </div>
+                </div>
+
+            <!-- D.light Project -->
+            <div class="portfolio-item" data-category="energy">
+                <img src="img/Our clients/Dlightproject/1.jpg" alt="D.light Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>D.light Project</h3>
+                        <p>Eco-Inspired Office Setup</p>
+                        <a href="dlight.html" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+             <div class="portfolio-item" data-category="energy">
+                <img src="img/Our clients/Dlightproject/2.jpg" alt="D.light Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>D.light Project</h3>
+                        <p>Eco-Inspired Office Setup</p>
+                        <a href="dlight.html" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+             <div class="portfolio-item" data-category="energy">
+                <img src="img/Our clients/Dlightproject/3.jpg" alt="D.light Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>D.light Project</h3>
+                        <p>Eco-Inspired Office Setup</p>
+                        <a href="dlight.html" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+             <div class="portfolio-item" data-category="energy">
+                <img src="img/Our clients/Dlightproject/4.jpg" alt="D.light Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>D.light Project</h3>
+                        <p>Eco-Inspired Office Setup</p>
+                        <a href="dlight.html" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+             <div class="portfolio-item" data-category="energy">
+                <img src="img/Our clients/Dlightproject/5.jpg" alt="D.light Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>D.light Project</h3>
+                        <p>Eco-Inspired Office Setup</p>
+                        <a href="dlight.html" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+             <div class="portfolio-item" data-category="energy">
+                <img src="img/Our clients/Dlightproject/6.jpg" alt="D.light Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>D.light Project</h3>
+                        <p>Eco-Inspired Office Setup</p>
+                        <a href="dlight.html" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+              <div class="portfolio-item" data-category="energy">
+                <img src="img/Our clients/Dlightproject/7.jpg" alt="D.light Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>D.light Project</h3>
+                        <p>Eco-Inspired Office Setup</p>
+                        <a href="dlight.html" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+              <div class="portfolio-item" data-category="energy">
+                <img src="img/Our clients/Dlightproject/8.jpg" alt="D.light Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>D.light Project</h3>
+                        <p>Eco-Inspired Office Setup</p>
+                        <a href="dlight.html" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+              <div class="portfolio-item" data-category="energy">
+                <img src="img/Our clients/Dlightproject/9.jpg" alt="D.light Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>D.light Project</h3>
+                        <p>Eco-Inspired Office Setup</p>
+                        <a href="dlight.html" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conservation International Project -->
+            <div class="portfolio-item" data-category="ngo">
+                <img src="https://source.unsplash.com/featured/?nature,workspace" alt="Conservation International Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Conmmunication International Project</h3>
+                        <p>Nature-Themed Interior Solutions</p>
+                        <a href="communicationinternationalproject.html" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="ngo">
+                <img src="https://source.unsplash.com/featured/?nature,workspace" alt="Conservation International Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Conmmunication International Project</h3>
+                        <p>Nature-Themed Interior Solutions</p>
+                        <a href="communicationinternationalproject.html" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="ngo">
+                <img src="https://source.unsplash.com/featured/?nature,workspace" alt="Conservation International Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Conmmunication International Project</h3>
+                        <p>Nature-Themed Interior Solutions</p>
+                        <a href="communicationinternationalproject.html" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="ngo">
+                <img src="https://source.unsplash.com/featured/?nature,workspace" alt="Conservation International Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Conmmunication International Project</h3>
+                        <p>Nature-Themed Interior Solutions</p>
+                        <a href="communicationinternationalproject.html" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="ngo">
+                <img src="https://source.unsplash.com/featured/?nature,workspace" alt="Conservation International Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Conmmunication International Project</h3>
+                        <p>Nature-Themed Interior Solutions</p>
+                        <a href="communicationinternationalproject.html" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="ngo">
+                <img src="https://source.unsplash.com/featured/?nature,workspace" alt="Conservation International Project" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <div class="overlay-content">
+                        <h3>Conmmunication International Project</h3>
+                        <p>Nature-Themed Interior Solutions</p>
+                        <a href="communicationinternationalproject.html" class="view-project">View Projects</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    /* Portfolio Section Styles */
+    .portfolio {
+        padding: 80px 0;
+        background-color: #fff;
+    }
+    
+    .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .section-title h2 {
+        font-size: 36px;
+        margin-bottom: 15px;
+        color: #333;
+    }
+    
+    .section-title p {
+        color: #777;
+        font-size: 18px;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    /* Filter Buttons */
+    .portfolio-filter {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+        gap: 10px;
+    }
+    
+    .filter-btn {
+        padding: 10px 20px;
+        background: transparent;
+        border: 2px solid #4a6fa5;
+        color: #4a6fa5;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin: 5px;
+    }
+    
+    .filter-btn:hover, .filter-btn.active {
+        background: #4a6fa5;
+        color: white;
+    }
+    
+    /* Portfolio Grid */
+    .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 25px;
+        padding: 0 20px;
+    }
+    
+    .portfolio-item {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 250px;
+    }
+    
+    .portfolio-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    
+    .portfolio-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+    }
+    
+    .portfolio-item:hover .portfolio-img {
+        transform: scale(1.05);
+    }
+    
+    /* Portfolio Overlay */
+    .portfolio-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(74, 111, 165, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .portfolio-item:hover .portfolio-overlay {
+        opacity: 1;
+    }
+    
+    .overlay-content {
+        text-align: center;
+        padding: 20px;
+        transform: translateY(20px);
+        transition: transform 0.3s ease;
+    }
+    
+    .portfolio-item:hover .overlay-content {
+        transform: translateY(0);
+    }
+    
+    .portfolio-overlay h3 {
+        color: white;
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+    
+    .portfolio-overlay p {
+        color: rgba(255,255,255,0.8);
+        margin-bottom: 20px;
+    }
+    
+    .view-project {
+        display: inline-block;
+        padding: 8px 20px;
+        background: white;
+        color: #4a6fa5;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    
+    .view-project:hover {
+        background: #f1f1f1;
+        transform: translateY(-2px);
+    }
+    
+    /* Animation for filtered items */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .portfolio-item.show {
+        animation: fadeIn 0.5s ease forwards;
+    }
+    
+    .portfolio-item.hide {
+        display: none;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .portfolio-grid {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .portfolio {
+            padding: 60px 0;
+        }
+        
+        .section-title h2 {
+            font-size: 30px;
+        }
+        
+        .section-title p {
+            font-size: 16px;
+        }
+        
+        .portfolio-filter {
+            margin-bottom: 20px;
+        }
+        
+        .filter-btn {
+            padding: 8px 15px;
+            font-size: 14px;
+        }
+        
+        .portfolio-grid {
+            grid-template-columns: 1fr;
+            padding: 0 15px;
+            gap: 15px;
+        }
+        
+        .portfolio-item {
+            height: 200px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .portfolio-filter {
+            justify-content: flex-start;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .filter-btn {
+            margin: 0 5px 0 0;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Portfolio Filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filterValue = this.getAttribute('data-filter');
+                
+                // Filter items
+                portfolioItems.forEach(item => {
+                    item.classList.remove('show', 'hide');
+                    
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.classList.add('show');
+                    } else {
+                        item.classList.add('hide');
+                    }
+                });
+            });
+        });
+        
+        // Initialize all items as visible
+        portfolioItems.forEach(item => {
+            item.classList.add('show');
+        });
+        
+        // Handle touch events for mobile hover effects
+        if ('ontouchstart' in window) {
+            const items = document.querySelectorAll('.portfolio-item');
+            
+            items.forEach(item => {
+                let tapped = false;
+                
+                item.addEventListener('touchstart', function(e) {
+                    if (!tapped) {
+                        tapped = true;
+                        setTimeout(() => { tapped = false; }, 300);
+                        e.preventDefault();
+                        this.classList.add('hover-effect');
+                    } else {
+                        // Double tap - treat as click
+                        tapped = false;
+                        const link = this.querySelector('.view-project');
+                        if (link) {
+                            window.location.href = link.href;
+                        }
+                    }
+                });
+                
+                document.addEventListener('touchstart', function(e) {
+                    if (!item.contains(e.target)) {
+                        item.classList.remove('hover-effect');
+                    }
+                });
+            });
+        }
+    });
+</script>
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <p>Hear what our clients have to say about working with Design Space Interiors.</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-slide active">
+                    <p class="testimonial-content">Design Space Interiors transformed our home beyond our expectations. Their attention to detail and creative solutions made the entire process enjoyable. We couldn't be happier with the results!</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah M." class="author-img">
+                        <div class="author-info">
+                            <h4>Sarah M.</h4>
+                            <p>Homeowner, Karen</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="testimonial-content">Working with Design Space Interiors on our office redesign was a fantastic experience. They understood our brand perfectly and created a space that impresses both our employees and clients.</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="James K." class="author-img">
+                        <div class="author-info">
+                            <h4>James K.</h4>
+                            <p>CEO, Tech Company</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="testimonial-content">The team at Design Space Interiors delivered exceptional results for our restaurant. They created a warm, inviting atmosphere that perfectly complements our cuisine. Our customers love it!</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Amina W." class="author-img">
+                        <div class="author-info">
+                            <h4>Amina W.</h4>
+                            <p>Restaurant Owner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <div class="slider-dots">
+                    <div class="dot active" data-slide="0"></div>
+                    <div class="dot" data-slide="1"></div>
+                    <div class="dot" data-slide="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Ready to transform your space? Get in touch with our team today.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Let's Start Your Project</h3>
+                    <p>We'd love to hear about your design needs and how we can help bring your vision to life.</p>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Our Location</h4>
+                            <p>Design Studios, Westlands Road, Nairobi, Kenya</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Email Us</h4>
+                            <p>info@designspaceinteriors.co.ke</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Call Us</h4>
+                            <p>+254 712 345 678</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Working Hours</h4>
+                            <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>About Us</h3>
+                    <p>Design Space Interiors is a premier interior design firm in Kenya, creating beautiful, functional spaces for residential and commercial clients since 2005.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="service.html"><i class="fas fa-chevron-right"></i> Residential Design</a></li>
+                        <li><a href="service.html"><i class="fas fa-chevron-right"></i> Commercial Design</a></li>
+                        <li><a href="service.html"><i class="fas fa-chevron-right"></i> Space Planning</a></li>
+                        <li><a href="service.html"><i class="fas fa-chevron-right"></i> Color Consultation</a></li>
+                        <li><a href="service.html"><i class="fas fa-chevron-right"></i> Furniture Selection</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="aboutus.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="service.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="portfolio.html"><i class="fas fa-chevron-right"></i> Portfolio</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for design tips and exclusive offers.</p>
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <button type="submit" class="submit-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Design Space Interiors. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: #c19a6b;"></i> by Design Space Team</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      
+
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Back to top button
+            const backToTopBtn = document.querySelector('.back-to-top');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Portfolio filter
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    portfolioItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Testimonial slider
+            const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+            const dots = document.querySelectorAll('.dot');
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                testimonialSlides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                testimonialSlides[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentSlide = index;
+            }
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    showSlide(index);
+                });
+            });
+
+            // Auto slide change
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % testimonialSlides.length;
+                showSlide(currentSlide);
+            }, 5000);
+
+            // Animate elements on scroll
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.hero-content, .about-img, .about-text, .service-card, .portfolio-item, .contact-info, .contact-form');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementPosition < windowHeight - 100) {
+                        element.classList.add('active');
+                    }
+                });
+            };
+
+            // Initialize animations
+            window.addEventListener('load', animateOnScroll);
+            window.addEventListener('scroll', animateOnScroll);
+
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
+
+            // Newsletter form submission
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for subscribing to our newsletter!');
+                    this.reset();
+                });
+            }
+    </script>
+    <script>
+        import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+
+createUserWithEmailAndPassword(auth, email, password);
+signInWithEmailAndPassword(auth, email, password);
+    </script>
+</body>
+</html>
